@@ -2,14 +2,14 @@
 
 **Online Banking API**
 
-| End-Pointler | Özellikler |
+| End-Pointler | Explanation |
 | ------ | ------ |
-| api/customer | New Customer Endpoint |
-| api/Account | New Account Endpoint. |
-| api/Account/{id} | View the account details |
-| api/transcation/{accountId} | List transactions of an account |
-| api/transcation/{startDate}/{endDate} |  View all transactions of the customer between a time period |
-| api/withdraw |  New Account Transaction Endpoint for adding and withdrawing money. This action needs to updatethe balance of the account. |
+| HttpGet api/customer | New Customer Endpoint |
+| HttpPost api/Account | New Account Endpoint. |
+| HttpGet api/Account/{id} | View the account details |
+| HttpGet api/transcation/{accountId} | List transactions of an account |
+| HttpGet api/transcation/{startDate}/{endDate} |  View all transactions of the customer between a time period |
+| HttpPut api/withdraw |  New Account Transaction Endpoint for adding and withdrawing money. This action needs to updatethe balance of the account. |
 
 ## Tech
 
