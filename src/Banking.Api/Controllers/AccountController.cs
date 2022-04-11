@@ -23,7 +23,7 @@ namespace Banking.Api.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("{id}/account")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             var account = _accountService.GetAccountDetail(id);
