@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  banking.api:
+    image: ${DOCKER_REGISTRY-}bankingapi
+    build:
+      context: .
+      dockerfile: src/Banking.Api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+     - bankdb
+
+  bankdb:
+   container_name: bankdb
+   image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+   environment:
+    ACCEPT_EULA: "Y"
+    SA_PASSWORD: "qaz!0qaz"
+    MSSQL_PID: Express
+   ports:
+     - "1433:1433"
